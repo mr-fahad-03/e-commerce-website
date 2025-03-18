@@ -22,9 +22,8 @@ const app = express()
 // Middleware
 app.use(cors(
 {
-origin: ["https:frontendd"],
-methods:
-["POST", "GET"],
+origin: ["https://the-watch-hub.vercel.app"],
+ methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
 credentials: true
 }
 ));
