@@ -23,7 +23,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/products/${id}`)
+        const { data } = await axios.get(`https://e-commerce-api-sepia.vercel.app/api/products/${id}`)
         setProduct(data)
         setLoading(false)
       } catch (error) {

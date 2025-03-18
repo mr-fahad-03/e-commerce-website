@@ -24,7 +24,7 @@ const AdminOrders = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get("http://localhost:5000/api/admin/orders")
+      const { data } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/admin/orders")
       setOrders(data)
       setLoading(false)
     } catch (error) {
@@ -44,7 +44,7 @@ const AdminOrders = () => {
   const handleUpdateStatus = async (orderId, status) => {
     try {
       setProcessingAction(true)
-      await axios.put(`http://localhost:5000/api/admin/orders/${orderId}/status`, { status })
+      await axios.put(`https://e-commerce-api-sepia.vercel.app/api/admin/orders/${orderId}/status`, { status })
 
       // Update order in state
       setOrders(orders.map((order) => (order._id === orderId ? { ...order, status } : order)))
@@ -64,7 +64,7 @@ const AdminOrders = () => {
   const handleUpdateTracking = async (orderId, trackingId) => {
     try {
       setProcessingAction(true)
-      await axios.put(`http://localhost:5000/api/admin/orders/${orderId}/tracking`, { trackingId })
+      await axios.put(`https://e-commerce-api-sepia.vercel.app/api/admin/orders/${orderId}/tracking`, { trackingId })
 
       // Update order in state
       setOrders(orders.map((order) => (order._id === orderId ? { ...order, trackingId } : order)))
@@ -84,7 +84,7 @@ const AdminOrders = () => {
   const handleSendNotification = async (orderId) => {
     try {
       setProcessingAction(true)
-      await axios.post(`http://localhost:5000/api/admin/orders/${orderId}/notify`)
+      await axios.post(`https://e-commerce-api-sepia.vercel.app/api/admin/orders/${orderId}/notify`)
       setProcessingAction(false)
       alert("Notification email sent successfully!")
     } catch (error) {

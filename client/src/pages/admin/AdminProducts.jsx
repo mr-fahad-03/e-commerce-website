@@ -27,7 +27,7 @@ const AdminProducts = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get("http://localhost:5000/api/products")
+      const { data } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/products")
       setProducts(data)
 
       // Extract unique categories
@@ -54,7 +54,7 @@ const AdminProducts = () => {
   const handleDelete = async (productId) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${productId}`)
+        await axios.delete(`https://e-commerce-api-sepia.vercel.app/api/products/${productId}`)
         setProducts(products.filter((product) => product._id !== productId))
       } catch (error) {
         setError("Failed to delete product. Please try again.")
@@ -66,10 +66,10 @@ const AdminProducts = () => {
     try {
       if (editingProduct) {
         // Update existing product
-        await axios.put(`http://localhost:5000/api/products/${editingProduct._id}`, productData)
+        await axios.put(`https://e-commerce-api-sepia.vercel.app/api/products/${editingProduct._id}`, productData)
       } else {
         // Create new product
-        await axios.post("http://localhost:5000/api/products", productData)
+        await axios.post("https://e-commerce-api-sepia.vercel.app/api/products", productData)
       }
 
       // Refresh product list

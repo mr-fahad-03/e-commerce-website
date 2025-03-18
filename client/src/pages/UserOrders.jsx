@@ -48,7 +48,7 @@ const UserOrders = () => {
           return
         }
 
-        const { data } = await axios.get("http://localhost:5000/api/orders/myorders", {
+        const { data } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/orders/myorders", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -27,11 +27,11 @@ const AdminDashboard = () => {
     const fetchDashboardData = async () => {
       try {
         // Fetch dashboard statistics
-        const { data: statsData } = await axios.get("http://localhost:5000/api/admin/stats")
+        const { data: statsData } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/admin/stats")
         setStats(statsData)
 
         // Fetch recent orders
-        const { data: ordersData } = await axios.get("http://localhost:5000/api/admin/orders/recent")
+        const { data: ordersData } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/admin/orders/recent")
         setRecentOrders(ordersData)
 
         setLoading(false)

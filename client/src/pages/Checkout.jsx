@@ -81,7 +81,7 @@ const Checkout = () => {
         totalPrice: totalWithDelivery,
       }
 
-      const { data } = await axios.post("http://localhost:5000/api/orders", orderData, {
+      const { data } = await axios.post("https://e-commerce-api-sepia.vercel.app/api/orders", orderData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

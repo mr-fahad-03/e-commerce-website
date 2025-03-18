@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       if (userToken) {
         try {
           axios.defaults.headers.common["Authorization"] = `Bearer ${userToken}`
-          const { data } = await axios.get("http://localhost:5000/api/users/profile")
+          const { data } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/users/profile")
           setUser(data)
           setAdmin(null)
         } catch (error) {
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
       if (adminToken) {
         try {
           axios.defaults.headers.common["Authorization"] = `Bearer ${adminToken}`
-          const { data } = await axios.get("http://localhost:5000/api/admin/profile")
+          const { data } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/admin/profile")
           setAdmin(data)
           setUser(null)
         } catch (error) {
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const { data } = await axios.post("http://localhost:5000/api/users/login", { email, password })
+      const { data } = await axios.post("https://e-commerce-api-sepia.vercel.app/api/users/login", { email, password })
       localStorage.setItem("userToken", data.token)
       localStorage.removeItem("adminToken")
       axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`
@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }) => {
 
   const adminLogin = async (email, password) => {
     try {
-      const { data } = await axios.post("http://localhost:5000/api/admin/login", { email, password })
+      const { data } = await axios.post("https://e-commerce-api-sepia.vercel.app/api/admin/login", { email, password })
       localStorage.setItem("adminToken", data.token)
       localStorage.removeItem("userToken")
       axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`
@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const { data } = await axios.post("http://localhost:5000/api/users/register", { name, email, password })
+      const { data } = await axios.post("https://e-commerce-api-sepia.vercel.app/api/users/register", { name, email, password })
       localStorage.setItem("userToken", data.token)
       localStorage.removeItem("adminToken") // Clear admin token on register
       axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`

@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/products")
+        const { data } = await axios.get("https://e-commerce-api-sepia.vercel.app/api/products")
 
         // Filter for featured products and new arrivals
         const featured = data.filter((product) => product.featured).slice(0, 4)
