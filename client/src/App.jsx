@@ -10,6 +10,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import UserOrders from "./pages/UserOrders"
 import AdminLogin from "./pages/admin/AdminLogin"
+import AppDownloadPopup from "./components/AppDownloadPopup"
 import AdminDashboard from "./pages/admin/AdminDashboard"
 import AdminProducts from "./pages/admin/AdminProducts"
 import AdminOrders from "./pages/admin/AdminOrders"
@@ -91,6 +92,9 @@ const AppContent = () => {
         </Routes>
       </main>
       {!isAdminRoute && <Footer className="hidden md:block" />}
+
+        {/* App Download Popup - only show on non-admin routes */}
+      {!isAdminRoute && <AppDownloadPopup />}
     </div>
   )
 }
